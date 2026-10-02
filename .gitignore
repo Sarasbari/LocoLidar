@@ -12,9 +12,11 @@ __pycache__/
 # Data and Models
 data/processed/
 data/raw/
+lidar_inference_pipeline/data/
 *.npz
 *.pt
 *.pth
+*.bin
 
 # IDE and OS
 .vscode/
