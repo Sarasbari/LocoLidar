@@ -5,7 +5,7 @@ from demo.sim_vehicle import SimulatedHazardVehicle
 
 class HazardSimulator:
     """
-    Deterministic hazard simulator for Project Balerion demo.
+    Deterministic hazard simulator for LocoLidar demo.
     Wraps the main project's SimulatedHazardVehicle backend module.
     Default canonical crossing hazard: start=(38.0, 3.0), velocity=(-1.5, -0.6), dt=0.5.
     """

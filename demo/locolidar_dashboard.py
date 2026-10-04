@@ -1,7 +1,7 @@
 """
 Track C — Real-Time Automotive Perception & Risk Safety Monitor Dashboard.
 
-High-performance mission-control UI for Project Balerion supporting dual operational modes:
+High-performance mission-control UI for LocoLidar supporting dual operational modes:
 1. LIVE REPLAY: Continuous recorded LiDAR frame sequence replay from data/processed/predictions.
 2. DEMO SIMULATION: Deterministic dynamic crossing hazard scenario.
 
@@ -62,7 +62,7 @@ SEMANTIC_COLORS = {
 }
 
 
-class BalerionDashboard:
+class LocoLidarDashboard:
     """
     High-Performance Real-Time Automotive Perception & Safety Monitor Console.
 
@@ -226,7 +226,7 @@ class BalerionDashboard:
         for spine in self.ax_bev.spines.values():
             spine.set_color("#222222")
 
-        self.title_bev = self.ax_bev.set_title("BALERION SEMANTIC BEV", color="#ffffff", fontsize=11, fontweight="bold", pad=8)
+        self.title_bev = self.ax_bev.set_title("LocoLidar SEMANTIC BEV", color="#ffffff", fontsize=11, fontweight="bold", pad=8)
 
         # Distance Rings (15m, 35m, 60m thin subtle gray lines)
         for r, lbl in [(15.0, "15 m"), (35.0, "35 m"), (60.0, "60 m")]:
@@ -354,7 +354,7 @@ class BalerionDashboard:
         # 2. Header Panel Artists
         self.ax_header.set_facecolor("#050505")
         self.ax_header.axis("off")
-        self.ax_header.text(0.01, 0.85, "PROJECT BALERION", color="#ffffff", fontsize=12, fontweight="bold", va="top")
+        self.ax_header.text(0.01, 0.85, "LocoLidar", color="#ffffff", fontsize=12, fontweight="bold", va="top")
         self.txt_header_sub = self.ax_header.text(0.01, 0.22, "REAL-TIME RISK & SAFETY MONITOR", color="#888888", fontsize=7.5, fontweight="bold", va="top")
         self.txt_header_mode = self.ax_header.text(0.99, 0.85, "", color="#ffffff", fontsize=8.0, fontweight="bold", ha="right", va="top", fontfamily="monospace")
         self.txt_header_telemetry = self.ax_header.text(0.99, 0.22, "", color="#888888", fontsize=7.5, fontweight="bold", ha="right", va="top", fontfamily="monospace")
@@ -421,7 +421,7 @@ class BalerionDashboard:
             color="#888888", fontsize=6.8, fontfamily="monospace", va="top"
         )
         self.txt_cells_bal = self.ax_adaptive.text(
-            0.52, 0.80, "BALERION: 0",
+            0.52, 0.80, "LocoLidar: 0",
             color="#ffffff", fontsize=6.8, fontweight="bold", fontfamily="monospace", va="top"
         )
         self.txt_cells_red = self.ax_adaptive.text(
@@ -799,7 +799,7 @@ class BalerionDashboard:
     def _update_bev_artists(self, tick_data: dict, sim_time: float, risk_level: str, refinement_active: bool):
         """Updates persistent BEV artists efficiently using vectorized PolyCollection and set_offsets."""
         mode_badge = "[ POINTNET++ REAL SEMANTIC PERCEPTION ]"
-        self.title_bev.set_text(f"BALERION SEMANTIC BEV  |  T = {sim_time:.1f}s")
+        self.title_bev.set_text(f"LocoLidar SEMANTIC BEV  |  T = {sim_time:.1f}s")
         self.txt_hazard_badge.set_text(mode_badge)
 
         risk_col = RISK_COLORS.get(risk_level, "#ffffff")
@@ -1026,7 +1026,7 @@ class BalerionDashboard:
 
         self.txt_input_pts.set_text(f"INPUT: {n_pts:,} pts")
         self.txt_cells_base.set_text(f"UNIFORM FINE: {baseline_cells:,}")
-        self.txt_cells_bal.set_text(f"BALERION: {total_cells:,}")
+        self.txt_cells_bal.set_text(f"LocoLidar: {total_cells:,}")
         self.txt_cells_red.set_text(f"CELL REDUCTION: {reduction_pct:.1f}%")
 
         self.txt_aggregation.set_text(
@@ -1151,7 +1151,7 @@ class BalerionDashboard:
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Project Balerion Real-Time Safety Monitor Dashboard")
+    parser = argparse.ArgumentParser(description="LocoLidar Real-Time Safety Monitor Dashboard")
     parser.add_argument(
         "input_path",
         nargs="?",
@@ -1186,9 +1186,9 @@ def parse_args():
 
 
 def main():
-    print("Launching Project Balerion Real-Time Safety Monitor Dashboard...")
+    print("Launching LocoLidar Real-Time Safety Monitor Dashboard...")
     args = parse_args()
-    dashboard = BalerionDashboard(
+    dashboard = LocoLidarDashboard(
         mode=args.mode,
         data_dir=args.data_dir,
         npz_path=args.input_path,

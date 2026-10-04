@@ -166,7 +166,7 @@ class TestAdaptiveRefinement(unittest.TestCase):
         self.assertGreater(output["baseline_cells"], output["total_cells"])
 
     def test_10_total_cells_reflects_merged_representation(self):
-        """10. Verify total_cells reflects the merged live Balerion representation."""
+        """10. Verify total_cells reflects the merged live LocoLidar representation."""
         st = {"x": 32.0, "y": 1.8, "vx": -2.0, "vy": -0.8}
         output = process_frame(self.raw_points, self.raw_labels, st, self.converter, self.risk_engine)
 

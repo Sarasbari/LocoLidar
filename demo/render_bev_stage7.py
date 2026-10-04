@@ -651,11 +651,11 @@ def main():
             print(f"  Source point conservation difference             : {refinement_info['source_point_difference']}")
             print(f"  Min source-point dist to hazard                  : {refinement_info['min_pt_distance']:.2f}m")
             print(f"  [Converter Output] Cells in local region (5m)    : {refinement_info['cells_before_local']}")
-            print(f"  [Balerion Refinement] Cells removed from frame   : {refinement_info['cells_removed']}")
-            print(f"  [Balerion Refinement] Fine cells added to frame  : {refinement_info['fine_cells_added']}")
+            print(f"  [LocoLidar Refinement] Cells removed from frame   : {refinement_info['cells_removed']}")
+            print(f"  [LocoLidar Refinement] Fine cells added to frame  : {refinement_info['fine_cells_added']}")
             print(f"  Remaining coarse cells inside refinement radius  : {refinement_info['remaining_coarse_cells_inside_refine_radius']}")
             print(f"  Total cells before (Converter representation)    : {refinement_info['total_cells_before']}")
-            print(f"  Final total cells rendered (Balerion override)   : {refinement_info['total_cells_rendered']}")
+            print(f"  Final total cells rendered (LocoLidar override)   : {refinement_info['total_cells_rendered']}")
             print("-" * 80)
 
             # Advance state for next tick

@@ -1,4 +1,4 @@
-"""Judge-facing safety decision layer for Project Balerion.
+"""Judge-facing safety decision layer for LocoLidar.
 
 This module intentionally does NOT change the risk/refinement mathematics.
 It only maps the existing risk level to an interpretable vehicle action and
