@@ -1,5 +1,5 @@
 """
-Generator script for synthetic mock .npz dataset for Balerion Track D.
+Generator script for synthetic mock .npz dataset for LocoLidar Track D.
 
 Matches agreed prediction schema:
 points      : (N, 5) float32 (x, y, z, intensity, ring)
