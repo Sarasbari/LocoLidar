@@ -233,7 +233,7 @@ def build_metrics(predictions_dir: Path, scene_config: Path) -> tuple[dict[str, 
 def write_report(metrics: dict[str, Any], scenes: list[dict[str, str]], output: Path) -> None:
     results = metrics["results"]
     lines = [
-        "# Balerion Reproducibility Report",
+        "# LocoLidar Reproducibility Report",
         "",
         f"Generated: `{metrics['generated_at_utc']}`",
         "",
@@ -272,7 +272,7 @@ def write_report(metrics: dict[str, Any], scenes: list[dict[str, str]], output: 
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Recompute auditable Balerion prototype metrics.")
+    parser = argparse.ArgumentParser(description="Recompute auditable LocoLidar prototype metrics.")
     parser.add_argument("--predictions-dir", type=Path, default=DEFAULT_PREDICTIONS)
     parser.add_argument("--scenes", type=Path, default=DEFAULT_SCENES)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
