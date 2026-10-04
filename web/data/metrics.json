@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-10-04T05:03:11.498377+00:00",
+  "generator": "scripts/recompute_metrics.py",
+  "environment": {
+    "python": "3.13.2",
+    "numpy": "2.5.2",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "input": {
+    "predictions_directory": "lidar_inference_pipeline\\data\\processed\\predictions",
+    "prediction_files_discovered": 10,
+    "frozen_demo_scene_config": "config\\demo_scenes.json",
+    "frozen_demo_scene_count": 3,
+    "label_provenance": {
+      "status": "unverified",
+      "reason": "Cached prediction files contain no checkpoint hash, ground-truth labels, or evaluation split manifest. This repository's mock generator explicitly uses an untrained PointNet++ model."
+    }
+  },
+  "mapping_configuration": {
+    "range_meters": 60.0,
+    "near_resolution_meters": 0.25,
+    "medium_resolution_meters": 0.5,
+    "far_resolution_meters": 1.0,
+    "baseline_definition": "Uniform fine-grid occupied XY cells at 0.25 m for the same points within 60 m. This is a cell-count baseline, not a sparse-voxel memory baseline."
+  },
+  "results": {
+    "frames_validated": 10,
+    "average_input_point_count": 32768.0,
+    "average_points_within_60m": 32508.6,
+    "average_adaptive_2_5d_cells": 4029.4,
+    "average_uniform_fine_occupied_cells": 4935.8,
+    "average_adaptive_cell_reduction_vs_uniform_fine_percent": 18.3116,
+    "average_mapping_only_latency_ms": 180.0305,
+    "semantic_labels_observed": [
+      2
+    ]
+  },
+  "claims": {
+    "frame_processing": {
+      "status": "recomputed",
+      "value": "10 / 10 cached prediction files passed schema, finite-XYZ, and adaptive-map conversion checks."
+    },
+    "adaptive_cell_reduction": {
+      "status": "recomputed",
+      "value": "See results.average_adaptive_cell_reduction_vs_uniform_fine_percent.",
+      "scope": "Occupied-cell count versus a fixed 0.25 m uniform grid; it is not a memory reduction claim."
+    },
+    "semantic_validation_accuracy": {
+      "status": "not_available",
+      "reason": "No held-out ground-truth labels and split manifest were found in the cached prediction inputs."
+    },
+    "semantic_class_coverage": {
+      "status": "insufficient",
+      "value": [
+        2
+      ],
+      "reason": "A public semantic-class legend must not imply that all three classes are present unless they are observed in the frozen replay inputs."
+    },
+    "sparse_voxel_memory_reduction": {
+      "status": "not_available",
+      "reason": "No sparse-voxel baseline implementation and serialized-memory measurement protocol are included in this verifier."
+    },
+    "dense_voxel_memory_reduction": {
+      "status": "not_available",
+      "reason": "No dense-voxel dimensions, dtype, and baseline protocol are included in this verifier."
+    },
+    "end_to_end_inference_latency": {
+      "status": "not_available",
+      "reason": "This verifier measures only adaptive-map conversion. It does not execute a trained semantic model."
+    },
+    "target_realtime_performance": {
+      "status": "target_only",
+      "reason": "No optimized inference implementation or benchmark evidence is present in this run."
+    }
+  },
+  "frames": [
+    {
+      "prediction_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151603547590_prediction.npz",
+      "sha256": "4b2124c3b2014e2339f71783b17f4bd889cefb4df0c60e09faf39ec4c9e23a0d",
+      "source_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151603547590.pcd.bin",
+      "input_point_count": 32768,
+      "points_within_60m": 32178,
+      "label_histogram": {
+        "2": 32768
+      },
+      "adaptive_2_5d_cells": 3652,
+      "uniform_fine_occupied_cells": 4416,
+      "adaptive_cell_reduction_vs_uniform_fine_percent": 17.3007,
+      "mapping_only_latency_ms": 183.3795,
+      "validation_latency_ms": 225.5642,
+      "frozen_demo_scene": true
+    },
+    {
+      "prediction_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151604048025_prediction.npz",
+      "sha256": "dbc94d63e234c8afd066fc067c7d171799e2849f51b537bf72b2b5b201dafbf3",
+      "source_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151604048025.pcd.bin",
+      "input_point_count": 32768,
+      "points_within_60m": 32254,
+      "label_histogram": {
+        "2": 32768
+      },
+      "adaptive_2_5d_cells": 3598,
+      "uniform_fine_occupied_cells": 4412,
+      "adaptive_cell_reduction_vs_uniform_fine_percent": 18.4497,
+      "mapping_only_latency_ms": 168.1265,
+      "validation_latency_ms": 199.8649,
+      "frozen_demo_scene": true
+    },
+    {
+      "prediction_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151604547893_prediction.npz",
+      "sha256": "a0c9a1b2619cee2bbf6fcc127d0634f79baf04ec1f2419b8ba3c17028d5b5490",
+      "source_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151604547893.pcd.bin",
+      "input_point_count": 32768,
+      "points_within_60m": 32320,
+      "label_histogram": {
+        "2": 32768
+      },
+      "adaptive_2_5d_cells": 3745,
+      "uniform_fine_occupied_cells": 4566,
+      "adaptive_cell_reduction_vs_uniform_fine_percent": 17.9807,
+      "mapping_only_latency_ms": 168.1717,
+      "validation_latency_ms": 208.8943,
+      "frozen_demo_scene": true
+    },
+    {
+      "prediction_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151605047769_prediction.npz",
+      "sha256": "b0a700437f8fae10a105e5a4194ac2f8161f6c2298ba1bb8eb18f9d7e042bce5",
+      "source_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151605047769.pcd.bin",
+      "input_point_count": 32768,
+      "points_within_60m": 32418,
+      "label_histogram": {
+        "2": 32768
+      },
+      "adaptive_2_5d_cells": 3939,
+      "uniform_fine_occupied_cells": 4813,
+      "adaptive_cell_reduction_vs_uniform_fine_percent": 18.1592,
+      "mapping_only_latency_ms": 175.925,
+      "validation_latency_ms": 208.3347,
+      "frozen_demo_scene": false
+    },
+    {
+      "prediction_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151605548192_prediction.npz",
+      "sha256": "d17fe8ca056ad2467fb4dcda1deed3df948a064edc1b437cfd7c23452d69ec9a",
+      "source_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151605548192.pcd.bin",
+      "input_point_count": 32768,
+      "points_within_60m": 32599,
+      "label_histogram": {
+        "2": 32768
+      },
+      "adaptive_2_5d_cells": 4009,
+      "uniform_fine_occupied_cells": 4828,
+      "adaptive_cell_reduction_vs_uniform_fine_percent": 16.9635,
+      "mapping_only_latency_ms": 172.6795,
+      "validation_latency_ms": 205.0232,
+      "frozen_demo_scene": false
+    },
+    {
+      "prediction_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151606048630_prediction.npz",
+      "sha256": "a10df1a48dad92a8ce6bfd91695980773406eb488afea8845c60543bf8e90817",
+      "source_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151606048630.pcd.bin",
+      "input_point_count": 32768,
+      "points_within_60m": 32687,
+      "label_histogram": {
+        "2": 32768
+      },
+      "adaptive_2_5d_cells": 3994,
+      "uniform_fine_occupied_cells": 4835,
+      "adaptive_cell_reduction_vs_uniform_fine_percent": 17.394,
+      "mapping_only_latency_ms": 170.4782,
+      "validation_latency_ms": 204.1775,
+      "frozen_demo_scene": false
+    },
+    {
+      "prediction_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151606549066_prediction.npz",
+      "sha256": "d1f274491cdd735eeb36efdfe8a55d88988d59029a11f17ddb717da5df637265",
+      "source_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151606549066.pcd.bin",
+      "input_point_count": 32768,
+      "points_within_60m": 32711,
+      "label_histogram": {
+        "2": 32768
+      },
+      "adaptive_2_5d_cells": 4095,
+      "uniform_fine_occupied_cells": 5046,
+      "adaptive_cell_reduction_vs_uniform_fine_percent": 18.8466,
+      "mapping_only_latency_ms": 175.598,
+      "validation_latency_ms": 207.5772,
+      "frozen_demo_scene": false
+    },
+    {
+      "prediction_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151607048933_prediction.npz",
+      "sha256": "d084a690eee7308802c7513d49861f1501d89b3adefa960fe737cb8c21dd0983",
+      "source_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151607048933.pcd.bin",
+      "input_point_count": 32768,
+      "points_within_60m": 32690,
+      "label_histogram": {
+        "2": 32768
+      },
+      "adaptive_2_5d_cells": 4500,
+      "uniform_fine_occupied_cells": 5541,
+      "adaptive_cell_reduction_vs_uniform_fine_percent": 18.7872,
+      "mapping_only_latency_ms": 196.2358,
+      "validation_latency_ms": 228.4281,
+      "frozen_demo_scene": false
+    },
+    {
+      "prediction_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151607548824_prediction.npz",
+      "sha256": "def29422061cd9be587d682afbda3876508ee403d03e7a4e41e5bd7982fe655d",
+      "source_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151607548824.pcd.bin",
+      "input_point_count": 32768,
+      "points_within_60m": 32633,
+      "label_histogram": {
+        "2": 32768
+      },
+      "adaptive_2_5d_cells": 4338,
+      "uniform_fine_occupied_cells": 5374,
+      "adaptive_cell_reduction_vs_uniform_fine_percent": 19.278,
+      "mapping_only_latency_ms": 194.7811,
+      "validation_latency_ms": 227.5862,
+      "frozen_demo_scene": false
+    },
+    {
+      "prediction_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151608048151_prediction.npz",
+      "sha256": "54202b13ff7f755dd74fdbbcc79800fc2514654b317ef335a312b4db8610f832",
+      "source_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151608048151.pcd.bin",
+      "input_point_count": 32768,
+      "points_within_60m": 32596,
+      "label_histogram": {
+        "2": 32768
+      },
+      "adaptive_2_5d_cells": 4424,
+      "uniform_fine_occupied_cells": 5527,
+      "adaptive_cell_reduction_vs_uniform_fine_percent": 19.9566,
+      "mapping_only_latency_ms": 194.9301,
+      "validation_latency_ms": 228.1758,
+      "frozen_demo_scene": false
+    }
+  ],
+  "failures": []
+}

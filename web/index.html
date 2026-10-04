@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Interactive recorded LiDAR replay and adaptive 2.5D mapping evidence prototype." />
+    <title>LocoLidar | Adaptive LiDAR Prototype</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div><span class="eyebrow">SIH 2026 · TEAM CRAZZY</span><h1>LocoLidar</h1></div>
+      <div class="status"><span class="pulse"></span> STATIC VERCEL PROTOTYPE</div>
+    </header>
+    <main>
+      <section class="notice" aria-label="Prototype disclosure">
+        <strong>Recorded replay:</strong> this browser shows precomputed LiDAR mapping data. No cloud inference runs when you open this link. Safety behavior below is a deterministic demonstration, clearly separated from recorded data.
+      </section>
+      <section class="controls panel">
+        <label>Recorded scene <select id="scene-select" aria-label="Recorded scene"></select></label>
+        <button id="play-button">▶ Play scenario</button>
+        <button id="reset-button" class="secondary">↺ Reset</button>
+        <button id="hazard-button" class="hazard">Introduce hazard</button>
+        <label class="timeline-label" for="timeline">Scenario timeline <input id="timeline" type="range" min="0" max="8" value="0" aria-label="Safety scenario timeline" /></label>
+        <div id="replay-label" class="muted" aria-live="polite"></div>
+      </section>
+      <section class="layout">
+        <article class="panel map-panel">
+          <div class="panel-title"><span>ADAPTIVE 2.5D MAP</span><span id="map-label" class="tag">RECORDED REPLAY</span></div>
+          <div class="map-tools" aria-label="Map layers"><span>LAYERS</span><label><input id="cells-toggle" type="checkbox" checked /> Adaptive cells</label><label><input id="points-toggle" type="checkbox" checked /> LiDAR points</label><label><input id="rings-toggle" type="checkbox" checked /> Distance zones</label></div>
+          <canvas id="map" aria-label="Bird's-eye view of the adaptive LiDAR map"></canvas>
+          <div class="legend"><span><i class="near"></i>Fine 0.25 m (0-15 m)</span><span><i class="medium"></i>Medium 0.50 m (15-35 m)</span><span><i class="far"></i>Coarse 1.00 m (35-60 m)</span><span><i class="hazard-dot"></i>Deterministic hazard</span></div>
+        </article>
+        <aside class="side-stack">
+          <article class="panel risk-card"><div class="panel-title">DEMO SAFETY STATE <span class="tag demo">DETERMINISTIC</span></div><div id="risk-level">LOW</div><div class="risk-metrics"><span>Risk score <b id="risk-score">0.12</b></span><span>TTC <b id="ttc">SAFE</b></span><span>Action <b id="action">PROCEED</b></span></div><div id="refinement-status" class="refinement inactive">LOCAL REFINEMENT · INACTIVE</div></article>
+          <article class="panel"><div class="panel-title">ADAPTIVE EFFICIENCY <span class="tag verified">RECOMPUTED</span></div><div class="two-col"><div><span>Adaptive cells</span><b id="adaptive-cells">—</b></div><div><span>Uniform fine cells</span><b id="uniform-cells">—</b></div><div><span>Cell reduction</span><b id="reduction">—</b></div><div><span>Map conversion</span><b id="latency">—</b></div></div><div class="bar-chart"><div><span>Uniform fine</span><i><b id="uniform-bar"></b></i></div><div><span>Adaptive 2.5D</span><i><b id="adaptive-bar"></b></i></div></div><small>Same recorded points within 60 m. This is an occupied-cell count comparison.</small></article>
+          <article class="panel"><div class="panel-title">EVIDENCE STATUS</div><ul id="evidence-list" class="evidence-list"></ul><a class="download" href="./data/metrics.json" download>Download evidence ledger (JSON)</a></article>
+        </aside>
+      </section>
+      <section class="panel methodology"><div class="panel-title">WHAT THIS PROVES</div><div class="method-grid"><p><b>Recomputed:</b> adaptive occupied-cell reduction versus a uniform 0.25 m occupied grid, on the same recorded points within 60 m.</p><p><b>Not claimed:</b> model accuracy, voxel-memory reductions, and end-to-end inference latency are not displayed as achieved without reproducible evidence.</p><p><b>Target only:</b> real-time performance goals remain future work. Browser rendering speed is not model inference speed.</p></div><details><summary>Evidence and methods</summary><p>Recorded scenes are precomputed. The red hazard, TTC, safety action, and local refinement are a deterministic UX simulation. The 5 m refinement overlay is illustrative and is not included in the recomputed cell count.</p></details></section>
+    </main>
+    <footer>LocoLidar · Adaptive Variable-Resolution 2.5D LiDAR Mapping · <span id="frame-proof">Loading evidence…</span></footer>
+    <script src="./app.js"></script>
+  </body>
+</html>

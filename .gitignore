@@ -30,3 +30,8 @@ lidar_inference_pipeline/data/
 
 # Antigravity/Agent scratches
 scratch_test.py
+.vercel
+day3-validate-deploy.md
+
+# Temporary dependencies and generation folders
+tmp_qr/

@@ -1,4 +1,4 @@
-# Project Balerion — Hackathon Execution Plan
+# LocoLidar — Hackathon Execution Plan
 
 Rebuild from scratch in a 6-hour window (no pre-built repo reused). This doc is the
 single source of truth for the team — read the Interface Contracts section first,
@@ -19,7 +19,7 @@ integration time.
 ## Repo Structure
 
 ```
-balerion/
+LocoLidar/
 ├── data/
 │   └── predictions/           # cached .npz files (Track A output)
 ├── preprocessing/
@@ -35,7 +35,7 @@ balerion/
 │   ├── risk_engine.py          # risk score, TTC, safety action
 │   └── dashboard.py            # Track C: full dashboard assembly
 ├── docs/
-│   └── BALERION_EXECUTION_PLAN.md   # this file
+│   └── LocoLidar_EXECUTION_PLAN.md   # this file
 └── README.md
 ```
 
@@ -88,7 +88,7 @@ Track C builds the dashboard against a **mock version of this dict** immediately
 ### Phase 1 — Parallel Build I (0:15–2:00)
 - **Track A:** Verify PointNet++ inference runs on at least 1 real frame; export to the agreed `.npz` schema. Target: 3-5 verified frames minimum, more if time allows.
 - **Track B:** Frame loading + coordinate verification (confirm +X forward, ego at origin, self-returns stripped) + 60m radius clipping filter with a printed before/after count.
-- **Track C:** Build dashboard shell against the mock dict (BEV panel placeholder + text metrics panel + baseline/Balerion cell-count row + event log placeholder). Layout only — real data wiring comes later.
+- **Track C:** Build dashboard shell against the mock dict (BEV panel placeholder + text metrics panel + baseline/LocoLidar cell-count row + event log placeholder). Layout only — real data wiring comes later.
 - **Track D (you):** Against the synthetic mock `.npz`: semantic BEV render → adaptive rings overlay → actual `Adaptive2_5DConverter` cell rendering (not raw points) → ego marker + predicted-path trajectory line.
 
 **Known gotchas to skip past (already debugged once, don't re-discover):**
@@ -139,7 +139,7 @@ With `closing_factor≈1.25`, HIGH only occupies roughly a 20–29m distance ban
 
 ### Phase 3 — Safety Layer + Polish (3:30–4:30)
 - **Track D:** TTC (path-relative — pre-corridor: time to lateral entry; in-corridor: `x / closing x-speed`, displayed as "SAFE" not raw infinity/negative), map risk→action (LOW/MEDIUM→PROCEED, HIGH→SLOW DOWN, CRITICAL→BRAKE)
-- **Track C:** Event log (plain text, append on each state transition), baseline-vs-Balerion panel using **measured** cell counts (baseline = fixed fine-resolution equivalent cell count for the same frame extent, Balerion = actual live converter+refinement cell count — both computed, never invented)
+- **Track C:** Event log (plain text, append on each state transition), baseline-vs-LocoLidar panel using **measured** cell counts (baseline = fixed fine-resolution equivalent cell count for the same frame extent, LocoLidar = actual live converter+refinement cell count — both computed, never invented)
 - **Track A/B:** Free capacity — help stress-test with 2-3 different real frames, or start on the optional multi-frame replay (Section 24 of the spec) only if everything else is solid; treat this as a stretch goal, not a requirement
 
 ### Phase 4 — Freeze & Rehearse (4:30–6:00)
@@ -155,13 +155,13 @@ With `closing_factor≈1.25`, HIGH only occupies roughly a 20–29m distance ban
 3. ADD VEHICLE / ADD PEDESTRIAN as separate buttons — collapse to a single INTRODUCE HAZARD trigger
 4. Real interactive GUI buttons — a keypress-advance or scripted animation reads as "live" to a judge and costs far less time than click-handler wiring
 
-**Do not cut:** the risk progression through all 4 levels, the local refinement visual (COARSE→FINE around the hazard), TTC/action display, and the baseline-vs-Balerion measured comparison — these five things are what Section 21 of the spec says must be visibly proven.
+**Do not cut:** the risk progression through all 4 levels, the local refinement visual (COARSE→FINE around the hazard), TTC/action display, and the baseline-vs-LocoLidar measured comparison — these five things are what Section 21 of the spec says must be visibly proven.
 
 ## 60–90 Second Judge Script (unchanged from spec — rehearse this, don't rewrite it live)
 
-1. **0–10s Hook:** "This is Project Balerion, our adaptive LiDAR perception system. Instead of treating every point equally, we allocate detail according to where it matters."
+1. **0–10s Hook:** "This is LocoLidar, our adaptive LiDAR perception system. Instead of treating every point equally, we allocate detail according to where it matters."
 2. **10–25s Normal Scene:** point at near/medium/far rings — "The near field gets fine resolution, while farther regions are intentionally coarser."
 3. **25–45s Hazard:** press INTRODUCE HAZARD — "Now I am introducing a moving vehicle into the ego vehicle's path." Show Risk: LOW → HIGH.
-4. **45–65s Adaptive Response:** "As the object becomes relevant, the risk increases and Balerion increases resolution only around the critical region." Show Resolution: COARSE → FINE.
+4. **45–65s Adaptive Response:** "As the object becomes relevant, the risk increases and LocoLidar increases resolution only around the critical region." Show Resolution: COARSE → FINE.
 5. **65–75s Safety:** Show TTC + action. "The refined local representation preserves the important obstacle and supports the safety response."
 6. **75–90s Close:** "We are not trying to process more LiDAR. We are trying to process the right LiDAR, at the right resolution, at the right time."
