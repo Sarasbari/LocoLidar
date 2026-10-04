@@ -1,5 +1,5 @@
 """
-Real Dynamic Object Tracker for Project Balerion.
+Real Dynamic Object Tracker for LocoLidar.
 
 Extracts real PointNet++ dynamic object predictions (labels == 2), performs
 spatial clustering in BEV coordinates (+X forward, +Y left), and tracks detected

@@ -71,7 +71,7 @@ def run_simulation():
     separator = "=" * len(header)
 
     print("\n" + separator)
-    print("          BALERION TRACK D — FULL DETERMINISTIC SIMULATION")
+    print("          LocoLidar TRACK D — FULL DETERMINISTIC SIMULATION")
     print(separator)
     print(header)
     print("-" * len(header))

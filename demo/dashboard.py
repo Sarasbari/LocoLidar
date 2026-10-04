@@ -2,12 +2,12 @@
 Dashboard module (Track C / Integration).
 
 Matplotlib dashboard shell assembling BEV panel, live metrics display,
-cell count comparison (Baseline vs Balerion), and event log.
+cell count comparison (Baseline vs LocoLidar), and event log.
 """
 
 
-class BalerionDashboard:
-    """Matplotlib dashboard UI shell for Project Balerion."""
+class LocoLidarDashboard:
+    """Matplotlib dashboard UI shell for LocoLidar."""
 
     def __init__(self):
         pass
