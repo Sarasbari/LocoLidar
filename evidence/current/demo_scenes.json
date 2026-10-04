@@ -1,0 +1,19 @@
+{
+  "scenes": [
+    {
+      "id": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151603547590",
+      "prediction_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151603547590_prediction.npz",
+      "title": "Recorded LiDAR Scene 01"
+    },
+    {
+      "id": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151604048025",
+      "prediction_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151604048025_prediction.npz",
+      "title": "Recorded LiDAR Scene 02"
+    },
+    {
+      "id": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151604547893",
+      "prediction_file": "n008-2018-08-01-15-16-36-0400__LIDAR_TOP__1533151604547893_prediction.npz",
+      "title": "Recorded LiDAR Scene 03"
+    }
+  ]
+}

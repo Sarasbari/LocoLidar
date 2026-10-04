@@ -1,0 +1,8 @@
+/.venv_cuda
+/data
+/lidar_inference_pipeline/data
+/demo/output
+/evidence
+/*.pth
+/*.pt
+/*.bin
